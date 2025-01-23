@@ -1,6 +1,9 @@
 import React from 'react'
+import { useSearchParams } from 'react-router-dom'
 
 const Home = () => {
+  const [searchParams]= useSearchParams()
+  console.log(searchParams.get('movie_id'))
   return (
     <div className='font-extrabold'>Home
     

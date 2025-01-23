@@ -7,8 +7,8 @@ const Nav = () => {
     <div>
         <ul className='flex justify-center '>
             <li className='ps-2'><Link to='/'>Home</Link></li>
-            <li className='ps-2'><Link to='/about'>About</Link></li>
-            <li className='ps-2'><Link to='/french'>French</Link></li>
+            <li className='ps-2'><Link to='/moviegenres'>Genres</Link></li>
+            <li className='ps-2'><Link to='/trending'>Trending</Link></li>
             <li className='ps-2'><Link to='/korean'>Korean</Link></li>
         </ul>
     </div>

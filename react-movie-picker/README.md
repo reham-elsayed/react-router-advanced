@@ -1,3 +1,6 @@
+
+https://developer.themoviedb.org/reference/genre-movie-list
+
 React Movie Picker
 
 This project is part of my learning journey and focuses on applying concepts from the React Router DOM library with React.
