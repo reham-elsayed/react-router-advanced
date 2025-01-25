@@ -62,3 +62,43 @@ npm run dev
 
 Open in Browser:
 Open http://localhost:5173 in your browser to view the app.
+
+
+
+
+ <BrowserRouter>
+  {/* <Nav/> */}
+  <Routes>
+    <Route path='/' element={<Layout/>}>
+    <Route index element={<Home/>}/>
+    <Route path='/moviegenres' element={<About/>}>
+      <Route path='drama' element={<Drama/>}/>
+      <Route path='action' element={<Action/>}/>
+    </Route>
+    <Route path='/trending' element={<TrendingLayout/>}>
+    <Route index element={<TrendingAll/>}/>
+    <Route path='seriestrend' element={<TrendingSeries/>}/>  
+    <Route path='moviestrend' element={<TrendingMovies/>}/> 
+    <Route path='singlemovie/:movie_id' element={<SingleMovieDetail/>} />
+
+    </Route>
+    </Route>
+  </Routes>
+  </BrowserRouter>
+   </>
+
+
+
+    {genres.map((genre)=>(
+        <div key={genre.name}>
+          <p
+         >
+            <Link to={`?genre=${genre.id}`}>
+            {genre.name}
+            </Link>
+          </p>
+        </div>
+      ))}
+      <div>{filteredMovies?<p>{filteredMovies.map(movie=>movie.title)}</p>:
+      <div>{movies.map(movie=>movie.title)}</div>
+      }</div>

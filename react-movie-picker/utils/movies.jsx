@@ -1,5 +1,4 @@
 import axios from 'axios';
-import React, {useEffect} from 'react';
 const options = {
   method: 'GET',
   url: 'https://api.themoviedb.org/3/genre/movie/list?language=en',

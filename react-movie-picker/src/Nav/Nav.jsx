@@ -1,15 +1,17 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 const Nav = () => {
   return (
-   <nav className='flex justify-between items-center'>
+   <nav className='flex justify-between items-center bg-yellow-200'>
     <div>Movies</div>
     <div>
-        <ul className='flex justify-center '>
-            <li className='ps-2'><Link to='/'>Home</Link></li>
-            <li className='ps-2'><Link to='/moviegenres'>Genres</Link></li>
-            <li className='ps-2'><Link to='/trending'>Trending</Link></li>
-            <li className='ps-2'><Link to='/korean'>Korean</Link></li>
+        <ul className='flex justify-center p-3'>
+   <li>
+   <Link to='/'>Home</Link>
+    </li> 
+    <li className='ps-3'>
+   <Link to='/genre'>Genre</Link>
+    </li> 
         </ul>
     </div>
    </nav>
