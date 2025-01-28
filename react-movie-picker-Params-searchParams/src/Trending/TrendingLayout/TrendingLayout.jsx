@@ -3,7 +3,6 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 const TrendingLayout = () => {
   return (
     <div>
-        trending layout
       <nav>
         <ul className="flex justify-between items-center px-10 mx-auto pt-5">
           <li>

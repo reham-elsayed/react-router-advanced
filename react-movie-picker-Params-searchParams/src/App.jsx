@@ -7,6 +7,7 @@ import TrendingLayout from "./Trending/TrendingLayout/TrendingLayout";
 import TrendingAll from "./Trending/TrendingAll/TrendingAll";
 import TrendingMovie from "./Trending/TrendingMovie/TrendingMovie";
 import TrendingSeries from "./Trending/TrendingSeries/TrendingSeries";
+import SingleMovie from "./SingleMovie/SingleMovie";
 
 function App() {
   return (

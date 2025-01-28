@@ -3,10 +3,15 @@
 @tailwind utilities;
 
 a {
-  background-color: rgb(233, 205, 135);
+ 
   padding: 5px 10px;
   border-radius: 15px;
 }
 .active {
   background-color: blue;
+}
+@layer components {
+  .button {
+    @apply px-5 py-2 bg-violet-700 shadow-sm shadow-slate-300 text-yellow-50 rounded-md focus:shadow-none hover:bg-violet-900  focus:scale-[.95] ;
+  }
 }
