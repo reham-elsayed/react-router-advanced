@@ -9,12 +9,13 @@ import TrendingMovie from "./Trending/TrendingMovie/TrendingMovie";
 import TrendingSeries from "./Trending/TrendingSeries/TrendingSeries";
 import SingleMovie from "./SingleMovie/SingleMovie";
 /*
-Dynamic Routing
-1-Create a new route for the single movie page in your React app using React Router. 👍
-2-Make the route dynamic based on user interaction (movie ID) by using a URL parameter (:id). 👍
-3-Create a navigation link that directs users to the single movie page with the corresponding movie ID. 👍
-4-Access the URL parameters in the single movie component using useParams() to fetch and display movie data.👍
-5-Navigate back to the previous page using the useNavigate() hook from React Router.
+useSearchParams is built on the URLSearchParams API, which allows managing query parameters in the URL.
+Query parameters let you pass data in the URL that can be shared across different pages without affecting the route structure.
+Query parameters are formatted as key-value pairs:
+They are appended to the URL using ? (e.g., ?search=react).
+Multiple parameters are separated by & (e.g., ?search=react&page=2).
+The useSearchParams hook is used to read and update query parameters in React Router.
+Unlike dynamic route parameters (:id), query parameters do not need to be defined in the route path setup.
 
 */
 function App() {
@@ -30,7 +31,7 @@ function App() {
               <Route path="trendingmovies" element={<TrendingMovie />} />
               <Route path="trendingseries" element={<TrendingSeries />} />
             </Route>
-            <Route path='movie/:id'  element={<SingleMovie/>}/>
+            <Route path="movie/:id" element={<SingleMovie />} />
           </Route>
         </Routes>
       </BrowserRouter>

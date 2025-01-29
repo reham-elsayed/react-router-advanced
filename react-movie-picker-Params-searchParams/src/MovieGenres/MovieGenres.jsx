@@ -4,7 +4,15 @@ const MovieGenres = () => {
   return (
     <div>
       MovieGenres
-      <nav></nav>
+
+      <nav>
+        <ul>
+          <li>
+Action
+          </li>
+          
+          </ul>
+      </nav>
     </div>
   );
 };
