@@ -15,6 +15,7 @@ export async function getPopularMovies() {
     console.log(popularMovies);
     return popularMovies.data.results;
   } catch (err) {
-    console.log(err);
+   
+    throw err.message;
   }
 }
