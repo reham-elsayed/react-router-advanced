@@ -1,24 +1,25 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
-import { fetchSingleMovieDatails } from "../../utils/singleMovie";
+import { fetchSingleTVDatails } from "../../utils/singleMovie";
 import { useNavigate, useParams } from "react-router-dom";
-const SingleMovie = () => {
+const SingleSeries = () => {
 const navigate = useNavigate()
 const {id} = useParams()
  const {data, isError, isLoading}= useQuery({
     queryKey:['single-movie-details', id],
-    queryFn: getSingleMoviedetails,
+    queryFn: getSingleTVdetails,
   })
 
-async function getSingleMoviedetails(){
-return await fetchSingleMovieDatails(id)
+async function getSingleTVdetails(){
+return await fetchSingleTVDatails(id)
  }
  
   return (
     <>
+    {isLoading && <div>...loading</div>}
       <div className="p-2 h-screen flex-col flex justify-center items-center">
-        SingleMovie with id {data?.id}
-        <span className="text-red-800 font-bold">{data?.title}</span>
+       Series id {data?.id}
+        <span className="text-red-800 font-bold">{data?.name}</span>
         <button
           onClick={() => {navigate(-1)}}
           className="button"
@@ -30,4 +31,4 @@ return await fetchSingleMovieDatails(id)
   );
 };
 
-export default SingleMovie;
+export default SingleSeries;

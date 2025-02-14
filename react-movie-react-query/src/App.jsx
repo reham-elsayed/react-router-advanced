@@ -10,6 +10,8 @@ import TrendingSeries from "./Trending/TrendingSeries/TrendingSeries";
 import SingleMovie from "./SingleMovie/SingleMovie";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import Login from "./Login/Login";
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import SingleSeries from "./singleSeries/singleSeries";
 function App() {
   const queryClient = new QueryClient()
   return (
@@ -26,10 +28,12 @@ function App() {
               <Route path="trendingseries" element={<TrendingSeries />} />
             </Route>
             <Route path="movie/:id" element={<SingleMovie />} />
+            <Route path="series/:id" element={<SingleSeries />} />
          <Route path='login' element={<Login/>}/>
           </Route>
         </Routes>
       </BrowserRouter>
+      <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </>
   );

@@ -1,20 +1,84 @@
 import axios from "axios";
 
-export async function getSingleMovieDetails(id) {
-  const options = {
-    method: "GET",
-    url: `https://api.themoviedb.org/3/tv/${id}?language=en-US`,
-    headers: {
-      accept: "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZTA0MmE0Y2EzZTU0OGVhOWU0OWU4NDFlZmVjNjVhZiIsIm5iZiI6MTczNzIzNzg1NC41OTMsInN1YiI6IjY3OGMyNTVlNjhlMGQ4NzM2MzZkZTA4ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.4dRFptz2l1l68tRCNcvR9ANteSVeVzdkQVxs84dRQX0",
-    },
-  };
-  try {
-    const movieDetails = await axios.request(options);
-    console.log(movieDetails);
-    return movieDetails.data;
-  } catch (err) {
-    console.log(err, "error of singleMovie");
-  }
+
+export async function fetchSingleTVDatails(id){
+const options={
+  method:'GET',
+  url: `https://api.themoviedb.org/3/tv/${id}?language=en-US`,
+  headers: {
+          accept: "application/json",
+          Authorization:
+          `Bearer ${import.meta.env.VITE_API_TOKEN}`
+            },
 }
+try{
+ const response = await axios.request(options)
+ console.log(response.data)
+ return response.data
+}catch(err){throw err}
+
+}
+export async function fetchSingleMovieDatails(id){
+  const options={
+    method:'GET',
+    url: `https://api.themoviedb.org/3/movie/${id}?language=en-US`,
+    headers: {
+            accept: "application/json",
+            Authorization:
+            `Bearer ${import.meta.env.VITE_API_TOKEN}`
+              },
+  }
+  try{
+   const response = await axios.request(options)
+   console.log(response.data)
+   return response.data
+  }catch(err){throw err}
+  
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// export async function getSingleMovieDetails(id) {
+//   const options = {
+//     method: "GET",
+//     url: `https://api.themoviedb.org/3/tv/${id}?language=en-US`,
+//     headers: {
+//       accept: "application/json",
+//       Authorization:
+//       `Bearer ${import.meta.env.VITE_API_TOKEN}`
+//         },
+//   };
+//   try {
+//     const movieDetails = await axios.request(options);
+//     console.log(movieDetails);
+//     return movieDetails.data;
+//   } catch (err) {
+//     console.log(err, "error of singleMovie");
+//   }
+// }

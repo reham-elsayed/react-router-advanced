@@ -1,28 +1,33 @@
-import { useQuery } from "@tanstack/react-query";
-import React, { useEffect } from "react";
-import { fetchMovieGenres, search } from "../../utils/movies";
+import { useQueries, useQuery } from "@tanstack/react-query";
+import React from "react";
+import { fetchMovieGenres } from "../../utils/movies";
+import { getPopularMovies } from "../../utils/popularMovies";
+
 
 const MovieGenres = () => {
-  const {data, isError,isLoading, error}= useQuery({
-    queryKey:['movie-genres'],
-    queryFn:fetchMovieGenres,
-   
-  })
- 
-const getsearch= async function(query){
-   await search(query)
-   }
- 
+ // genres array : {id, genre}
+ // movies getPopularmovie filter genre
+ async function combinedQueries(){
+ const genres= await fetchMovieGenres();
+ const movies =  await getPopularMovies()
+ return {genres, movies}
+ }
+const {data, error, isLoading}=useQuery({
+  queryKey:['combined-fetch'],
+  queryFn: combinedQueries
+})
+const filterMovieByGenre = function (id=28){
+  if(data)
+{const { movies} = data
 
-  console.log(data)
+return movies.filter((movie)=>movie.genre_ids.includes(id))
+}}
+console.log(filterMovieByGenre())
   return (
     <div>
       MovieGenres
+       <div>
 
-      <div>
-{isLoading && <div>... loading</div>}
-{isError && <p>Something went wrong: {error}</p>}
-{!isLoading && !isError && data?.map(movie => <p key={movie.id} onClick={()=>{getsearch(movie.name)}}>{movie.name}</p>)}
 </div>
     </div>
   );

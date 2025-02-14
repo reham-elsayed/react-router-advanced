@@ -1,37 +1,42 @@
+import { useQuery } from "@tanstack/react-query";
 import React from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link} from "react-router-dom";
+import { fetchTrendingAllToday } from "../../../utils/movies";
 
-const data = [
-  { id: 1, name: "Star wars" },
-  {
-    id: 2,
-    name: "Harry potter",
-  },
-  {
-    id: 3,
-    name: "Spider man",
-  },
-];
+
+
 const TrendingAll = () => {
-  
+ const {data, isError, isLoading} =  useQuery({
+    queryKey:['trendingAll'],
+    queryFn:fetchTrendingAllToday
+
+  })
 
   return (
     <div>
-      {data.map((movie) => (
-        <>
-          <div className="m-2 flex justify-start items-center gap-4 bg-slate-50">
-            <p>{movie.id}</p>
-            <p>{movie.name}</p>
-            <Link className="button" 
-            to={`../movie/${movie.id}?name=${movie.name}`}
-            state={{name: movie.name}}
-            >
-              
-              Movie Details
-            </Link>
-          </div>
-        </>
-      ))}
+      {isLoading && <div>...loading</div>}
+      {data?.map(movie=>( <>
+
+<div className="m-2 flex justify-start items-center gap-4 bg-slate-50">
+  <p>title: {movie.title?movie.title: movie.name}</p>
+  <p>rating {movie.vote_average}</p>
+  {movie.title?<Link
+  to={`../movie/${movie.id}`}
+   className="button" 
+  > 
+    Movie Details
+  </Link>:
+  <Link
+  to={`series/${movie.id}`}
+   className="button" 
+  > 
+    Series Details
+  </Link> }
+  
+</div>
+</>))}
+       
+     
     </div>
   );
 };
