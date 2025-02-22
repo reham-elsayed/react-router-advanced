@@ -10,7 +10,7 @@ const HeroCard = ({heroMovies}) => {
     className=' h-full rounded-md hero-img'
     >
       <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-      srcset={
+      srcSet={
         `https://image.tmdb.org/t/p/w200/${movie.poster_path} 200w,
     https://image.tmdb.org/t/p/w300/${movie.poster_path} 300w,
     https://image.tmdb.org/t/p/w500/${movie.poster_path} 500w,

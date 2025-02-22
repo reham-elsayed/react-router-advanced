@@ -29,7 +29,7 @@ const HomeCard = ({movie}) => {
            >{movie.title} </h2>
            <Link
            className='button'
-           to={`movie/${movie.id}`}>
+           to={`/movie/${movie.id}`}>
            See Details
            </Link>
         </div>

@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { fetchMovieGenres } from "../../utils/movies";
 import { getPopularMovies } from "../../utils/popularMovies";
 import { Link, useSearchParams } from "react-router-dom";
+import HomeCard from "../components/HomeCard/HomeCard";
+import Title from "../components/Title/Title";
 
 const MovieGenres = () => {
   const [filteredMovies, setFilteredMovies] = useState();
@@ -39,16 +41,15 @@ const MovieGenres = () => {
     }
   }, [data, searchParams.get("genre")]);
   return (
-    <div>
-      MovieGenres
-      <div className="flex justify-between items-center overflow-hidden flex-wrap">
+    <div className="flex flex-col items-center py-10">
+      <div className="flex justify-between items-center overflow-hidden flex-wrap w-4/5 gap-2">
         {isLoading && <div>...Loading</div>}
-
         {data
           ? data?.genres?.map((genre) => (
               <Link
+             
                 to={`.?genre=${genre.id}`}
-                className="p-2 cursor-pointer"
+                className="p-2 w-28 text-center cursor-pointer button rounded-full"
                 key={genre.id}
               >
                 {genre.name}
@@ -56,13 +57,19 @@ const MovieGenres = () => {
             ))
           : null}
       </div>
-      <div>
-        {filteredMovies?.length === 0 ? (
-          <p>No Movies Found</p>
+      <section
+      className="container mx-auto px-3 sm:px-5 md:px-7 py-10"
+      >
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-3 text-center">
+      {filteredMovies?.length === 0 ? (
+        <div className="text-center col-span-full">
+         <p className=""><Title title='No Movies Found'/></p>
+        </div>
         ) : (
-          filteredMovies?.map((movie) => <p>{movie.title}</p>)
+          filteredMovies?.map((movie) => <p><HomeCard movie={movie}/></p>)
         )}
       </div>
+      </section>
     </div>
   );
 };
