@@ -5,18 +5,22 @@ import { Link } from "react-router-dom";
 import HeroCard from "../components/Hero/HeroCard";
 import HomeCard from "../components/HomeCard/HomeCard";
 import Title from "../components/Title/Title";
+import useImageObtimizer from "../imageObtimizer";
 
 const Home = () => {
   const [heroMovies, setHeroMovies] = useState([])
   const [isClicked, setIsClicked] = useState(false)
+
   const { data, isError, isLoading, error } = useQuery({
     queryKey: ["popular-movies-home"],
     queryFn: getPopularMovies,
   });
+//  const imgUrls= useImageObtimizer({movies: data?.slice(0,9)})
 useEffect(()=>{
   if (data){
     const heroData = data?.slice(0,9)
     setHeroMovies(heroData)
+  
   }
 },[data])
 const nextSectionRef = useRef(null);
@@ -29,7 +33,7 @@ const handleScroll = () => {
      <div className=" bg-orange-200 ">
 {isLoading && <div>...loading</div>}
 {isError && <div>something went wrong {error}</div>}
-<div className="flex flex-col items-center gap-3">
+<div className="">
   <div className="bg-[#373047] py-5" >
     {!isError && <HeroCard heroMovies={heroMovies}/>}
   </div>
