@@ -2,6 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { Link } from "react-router-dom";
 import { fetchTrendingAllToday } from "../../../utils/movies";
+import HomeCard from "../../components/HomeCard/HomeCard";
+import Loader from "../../components/Loader/Loader";
 
 const TrendingAll = () => {
   const { data, isError, isLoading } = useQuery({
@@ -11,24 +13,14 @@ const TrendingAll = () => {
 
   return (
     <div>
-      {isLoading && <div>...loading</div>}
-      {data?.map((movie) => (
+      {isLoading && <div><Loader/></div>}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-3">
+    {data?.map((movie) => (
         <>
-          <div className="m-2 flex justify-start items-center gap-4 bg-slate-50">
-            <p>title: {movie.title ? movie.title : movie.name}</p>
-            <p>rating {movie.vote_average}</p>
-            {movie.title ? (
-              <Link to={`../movie/${movie.id}`} className="button">
-                Movie Details
-              </Link>
-            ) : (
-              <Link to={`series/${movie.id}`} className="button">
-                Series Details
-              </Link>
-            )}
-          </div>
+         <HomeCard movie={movie}/>
         </>
       ))}
+    </div>
     </div>
   );
 };

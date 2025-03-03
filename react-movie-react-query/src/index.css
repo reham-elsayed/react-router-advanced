@@ -7,129 +7,134 @@ a {
   border-radius: 15px;
 }
 .active {
-  background-color: blue;
+}
+body {
+  background-color: #373047;
 }
 @layer components {
   .button {
     @apply px-5 py-2 bg-slate-700 shadow-sm shadow-slate-300 text-yellow-50 rounded-md focus:shadow-none hover:bg-slate-900  focus:scale-[.95];
   }
-  
 }
 
-
-.hero{
+.hero {
   perspective: 1000px;
   transform-style: preserve-3d;
   transform: translateX(27px);
   z-index: 999;
-}  
-.hero-img{
+}
+.hero-img {
   transition: all 1s;
-  box-shadow:  0px 10px 20px rgba(0,0,0,0.5);
- 
-}  
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+}
 
-.hero-img:nth-child(1){
-  --currentR:-2deg;
-  --current3D:10px;
+.hero-img:nth-child(1) {
+  --currentR: -2deg;
+  --current3D: 10px;
   transform: rotate(var(--currentR)) translate3d(var(--current3D), 0px, 0px);
   z-index: 9;
 }
-.hero-img:nth-child(2){
-  --currentR:-1.5deg;
-  --current3D:-10px;
+.hero-img:nth-child(2) {
+  --currentR: -1.5deg;
+  --current3D: -10px;
   transform: rotate(var(--currentR)) translate3d(var(--current3D), 0px, 0px);
   z-index: 8;
 }
-.hero-img:nth-child(3){
-  --currentR:-1.5deg;
-  --current3D:-20px;
+.hero-img:nth-child(3) {
+  --currentR: -1.5deg;
+  --current3D: -20px;
   transform: rotate(var(--currentR)) translate3d(var(--current3D), 0px, 0px);
   z-index: 7;
 }
-.hero-img:nth-child(4){
-  --currentR:-1deg;
-  --current3D:-30px;
+.hero-img:nth-child(4) {
+  --currentR: -1deg;
+  --current3D: -30px;
   transform: rotate(var(--currentR)) translate3d(var(--current3D), 0px, 0px);
   z-index: 6;
 }
-.hero-img:nth-child(5){
-  --currentR:-2deg;
-  --current3D:-40px;
+.hero-img:nth-child(5) {
+  --currentR: -2deg;
+  --current3D: -40px;
   transform: rotate(var(--currentR)) translate3d(var(--current3D), 0px, 0px);
   z-index: 5;
 }
-.hero-img:nth-child(6){
-  --currentR:1.5deg;
-  --current3D:-50px;
+.hero-img:nth-child(6) {
+  --currentR: 1.5deg;
+  --current3D: -50px;
   transform: rotate(var(--currentR)) translate3d(var(--current3D), 0px, 0px);
   z-index: 4;
 }
 .hero-img:nth-child(7) {
   --current3D: -60px;
   --currentR: 2deg;
-  transform: rotate(var(--currentR)) translate3d(var(--current3D), 0px,0px);
+  transform: rotate(var(--currentR)) translate3d(var(--current3D), 0px, 0px);
   z-index: 3;
 }
-
-
-
 
 .hero-img:nth-child(8) {
   --current3D: -70px;
   --currentR: 1.5deg;
-  transform: rotate(var(--currentR)) translate3d(var(--current3D), 0px,0px);
+  transform: rotate(var(--currentR)) translate3d(var(--current3D), 0px, 0px);
   z-index: 2;
 }
 
 .hero-img:nth-child(9) {
   --current3D: -80px;
   --currentR: 1deg;
-  transform: rotate(var(--currentR)) translate3d(var(--current3D), 0px,0px);
+  transform: rotate(var(--currentR)) translate3d(var(--current3D), 0px, 0px);
   z-index: 1;
 }
-.hero-img:hover{
-  transform: rotate(var(--currentR)) translate3d(calc(var(--current3D)), 0px, 100px);
+.hero-img:hover {
+  transform: rotate(var(--currentR))
+    translate3d(calc(var(--current3D)), 0px, 100px);
   box-shadow: 10px 15px 30px 10px rgba(0, 0, 0, 0.7);
   z-index: 100;
 }
 
-@media (max-width:768px) {
-  .hero-img:nth-child(9),.hero-img:nth-child(8),.hero-img:nth-child(7){
-    display:none;
+@media (max-width: 768px) {
+  .hero-img:nth-child(9),
+  .hero-img:nth-child(8),
+  .hero-img:nth-child(7) {
+    display: none;
   }
-  
 }
-.card-hero-styler::before{
-content:'';
-position: absolute;
-top: 100%;
-width: 100%;
-height:85px;
-border-bottom-right-radius: 100%;
-border-bottom-left-radius: 100%;
-background-color:  #373047;
-opacity: 50%;
-z-index: 0;
-}
-.card-hero-styler::after{
-  content:'';
+.card-hero-styler::before {
+  content: "";
   position: absolute;
   top: 100%;
   width: 100%;
-  height:80px;
+  height: 85px;
   border-bottom-right-radius: 100%;
   border-bottom-left-radius: 100%;
-  background-color:  #373047;
+  background-color: #373047;
+  opacity: 50%;
   z-index: 0;
-  }
-.title-style::before{
-content: '';
-width:100%;
-height: 2px;
-background: #000;
-border-radius: 100%;
-position: absolute;
-top:90%;
-z-index: 0;
-  }
+}
+.card-hero-styler::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  height: 80px;
+  border-bottom-right-radius: 100%;
+  border-bottom-left-radius: 100%;
+  background-color: #373047;
+  z-index: 0;
+}
+.title-style::before {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: #000;
+  border-radius: 100%;
+  position: absolute;
+  top: 90%;
+  z-index: 0;
+}
+
+.index {
+  z-index: 9999;
+}
+.card-height{
+  height: calc(100vh - 5rem);
+}

@@ -50,14 +50,13 @@ async function createSessionId(requestToken) {
     },
     data: JSON.stringify({ request_token: requestToken }),
   };
-try{
-  const res = await axios.request(options);
-  if (res.data.session_id) {
-    console.log(res);
-    return res.data.session_id;
+  try {
+    const res = await axios.request(options);
+    if (res.data.session_id) {
+      console.log(res);
+      return res.data.session_id;
+    }
+  } catch (err) {
+    throw err.error;
   }
-} catch(err){
-  throw err.error
-}
- 
 }

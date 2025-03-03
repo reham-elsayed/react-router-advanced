@@ -2,14 +2,14 @@ import React from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
 const TrendingLayout = () => {
   return (
-    <div>
-      <nav>
-        <ul className="flex justify-between items-center px-10 mx-auto pt-5">
+    <div className="relative container mx-auto px-2 md:px-5 lg:px-7">
+      <nav className="fixed top-16 left-32 index ">
+        <ul className="flex justify-between  items-center container px-10 mx-auto  white/50 backdrop-blur-md shadow-sm rounded-full">
           <li>
             <NavLink
               to="."
               className={({ isActive }) =>
-                isActive ? "text-red-500" : "text-black"
+                isActive ? "text-yellow-500" : "text-white"
               }
               end
             >
@@ -20,7 +20,7 @@ const TrendingLayout = () => {
             <NavLink
               to="trendingmovies"
               className={({ isActive }) =>
-                isActive ? "text-red-500" : "text-black"
+                isActive ? "text-yellow-500" : "text-white"
               }
             >
               Movies
@@ -30,7 +30,7 @@ const TrendingLayout = () => {
             <NavLink
               to="trendingseries"
               className={({ isActive }) =>
-                isActive ? "text-red-500" : "text-black"
+                isActive ? "text-yellow-500" : "text-white"
               }
             >
               Series
@@ -38,7 +38,9 @@ const TrendingLayout = () => {
           </li>
         </ul>
       </nav>
-      <Outlet />
+     <div className="pt-10">
+     <Outlet />
+     </div>
     </div>
   );
 };
